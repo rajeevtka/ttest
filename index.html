@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript T-Test</title>
+</head>
+<body>
+  <h1>Two-Sample T-Test</h1>
+  <p>Enter the data for Sample 1:</p>
+  <input type="text" id="sample1Input" placeholder="e.g., 12, 15, 18, 21, 24">
+  <p>Enter the data for Sample 2:</p>
+  <input type="text" id="sample2Input" placeholder="e.g., 11, 14, 17, 20, 23">
+  <br>
+  <button onclick="performTTest()">Calculate T-Test</button>
+
+  <h2>Results:</h2>
+  <p id="result"></p>
+
+  <script>
+    // Function to calculate the mean of an array
+    function mean(arr) {
+      return arr.reduce((sum, value) => sum + value, 0) / arr.length;
+    }
+
+    // Function to calculate the variance of an array
+    function variance(arr, meanValue) {
+      return arr.reduce((sum, value) => sum + Math.pow(value - meanValue, 2), 0) / (arr.length - 1);
+    }
+
+    // Function to calculate the t-test
+    function tTest(sample1, sample2) {
+      // (Same code as before, no changes needed)
+    }
+
+    function performTTest() {
+      const sample1Input = document.getElementById("sample1Input").value;
+      const sample2Input = document.getElementById("sample2Input").value;
+
+      const sample1 = sample1Input.split(",").map(Number);
+      const sample2 = sample2Input.split(",").map(Number);
+
+      const result = tTest(sample1, sample2);
+
+      const resultElement = document.getElementById("result");
+      resultElement.innerHTML = `T-Statistic: ${result.tStatistic.toFixed(4)}<br>
+        Degrees of Freedom: ${result.degreesOfFreedom}<br>
+        Result: ${result.criticalValue}`;
+    }
+  </script>
+</body>
+</html>
